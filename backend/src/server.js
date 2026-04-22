@@ -3,9 +3,15 @@ import app from "./app.js";
 import { connectDatabase } from "./config/db.js";
 import { env } from "./config/env.js";
 import { initSocket } from "./config/socket.js";
+ import cors from "cors";
 
 const startServer = async () => {
   await connectDatabase();
+ 
+
+app.use(cors({
+  origin: "https://attendy-fjbb.vercel.app/"
+}));
 
   const server = http.createServer(app);
   const io = initSocket(server);
