@@ -10,7 +10,7 @@ const startServer = async () => {
  
 
 app.use(cors({
-  origin: "https://attendy-fjbb.vercel.app/"
+  origin: "https://vercel.com/dubey161412-3265s-projects/attendy-fjbb/HUF5NPXNihS4KMjjbajQMVGk7c43"
 }));
 
   const server = http.createServer(app);
