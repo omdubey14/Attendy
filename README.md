@@ -1,155 +1,134 @@
-# Student Management System
+<div align="center">
+  <h1>🎓 Attendy</h1>
+  <p>A comprehensive, full-stack Student Management System built with the MERN stack and Socket.io for real-time interactions.</p>
 
-A production-ready MERN Student Management System built with:
+  <div>
+    <img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="React" />
+    <img src="https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" />
+    <img src="https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB" alt="Express.js" />
+    <img src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
+    <img src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
+    <img src="https://img.shields.io/badge/Socket.io-black?style=for-the-badge&logo=socket.io&badgeColor=010101" alt="Socket.io" />
+  </div>
+</div>
 
-- React + Tailwind CSS + React Hook Form
-- Node.js + Express.js
-- MongoDB + Mongoose
-- JWT authentication with role-based access
-- Socket.io for real-time notifications and attendance updates
-- Local file uploads for student avatars
+---
 
-## Features
+## 📖 Overview
 
-- Student panel
-  - Register and login
-  - View and update profile
-  - View attendance
-  - View marks
-  - Download report card as PDF
-  - Receive real-time notifications
-- Teacher panel
-  - Login
-  - View students list with search/filter/pagination
-  - Mark attendance by subject and date
-  - Upload marks
-  - Send announcements
-- Admin panel
-  - Dashboard with analytics and charts
-  - Manage users and registration approvals
-  - Create classes
-  - Review reports
-  - Audit system logs
+**Attendy** is a production-ready Student Management System designed to streamline school operations, attendance tracking, and performance monitoring. It features role-based access control for Admins, Teachers, and Students, complete with a modern, responsive UI and real-time event notifications.
 
-## Project Structure
+## ✨ Features
 
-```text
-backend/
-  src/
-    config/
-    controllers/
-    middleware/
-    models/
-    routes/
-    seeders/
-    services/
-    utils/
-frontend/
-  src/
-    components/
-    context/
-    hooks/
-    pages/
-    services/
-    utils/
-docs/
-```
+### 👨‍🎓 For Students
+- **Dashboard Summary:** Get an overview of your academic standing.
+- **Profile Management:** View and update your profile, including avatar uploads.
+- **Attendance & Marks:** Keep track of your daily attendance and subject marks.
+- **Real-time Notifications:** Instantly receive updates on attendance and marks.
+- **Report Cards:** Download official PDF report cards generated on-the-fly.
 
-## Setup
+### 👩‍🏫 For Teachers
+- **Teacher Dashboard:** Overview of classes and student performance.
+- **Class Management:** Filter and search through students easily.
+- **Attendance Tracking:** Mark and update student attendance.
+- **Grade Uploads:** Upload and manage student marks.
+- **Announcements:** Send class-wide or school-wide announcements.
 
-### 1. Backend setup
+### 🛡️ For Administrators
+- **System Analytics:** Visual charts showing class strength and performance.
+- **User Management:** Review, approve, or reject user registrations.
+- **Class Creation:** Manage school infrastructure and classes.
+- **System Logs & Reports:** Review system logs and comprehensive reports.
 
-```bash
-cd backend
-cp .env.example .env
-npm install
-```
+## 🛠️ Tech Stack
 
-Update `backend/.env`:
+### Frontend
+- **React (Vite):** Blazing fast development and optimized builds.
+- **Tailwind CSS:** Utility-first styling for a sleek, responsive design.
+- **Framer Motion:** Smooth UI transitions and micro-animations.
+- **Recharts:** Interactive and customizable data visualization.
+- **React Router & React Hook Form:** Seamless navigation and robust form handling.
 
-```env
-PORT=5000
-NODE_ENV=development
-CLIENT_URL=http://localhost:5173
-MONGODB_URI=mongodb://127.0.0.1:27017/student_management_system
-JWT_SECRET=replace_with_a_long_random_secret
-JWT_EXPIRES_IN=7d
-CACHE_TTL=120
-UPLOAD_DIR=uploads
-```
+### Backend
+- **Node.js & Express:** Scalable API architecture with MVC pattern.
+- **MongoDB & Mongoose:** Flexible schema design for user data and school records.
+- **Socket.io:** Real-time bidirectional event-based communication.
+- **JWT & bcrypt:** Secure authentication and password hashing.
+- **PDFKit & Multer:** Dynamic PDF generation and robust file uploads.
+- **Security:** Helmet headers, rate limiting, and input validation.
 
-### 2. Frontend setup
+## 🚀 Getting Started
 
-```bash
-cd frontend
-cp .env.example .env
-npm install
-```
+Follow these instructions to set up the project locally.
 
-Update `frontend/.env`:
+### Prerequisites
+- Node.js (v18+ recommended)
+- MongoDB running locally or a MongoDB Atlas URI
 
-```env
-VITE_API_URL=http://localhost:5000/api/v1
-```
+### Installation
 
-### 3. Seed dummy data
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/your-username/attendy.git
+   cd attendy
+   ```
 
-Make sure MongoDB is running locally, then:
+2. **Install Dependencies:**
 
-```bash
-cd backend
-npm run seed
-```
+   You can use the provided package scripts to install dependencies for both frontend and backend:
+   ```bash
+   npm run install:backend
+   npm run install:frontend
+   ```
 
-Demo credentials:
+3. **Environment Setup:**
 
-- Admin: `admin@sms.com` / `admin123`
-- Teacher: `teacher@sms.com` / `teacher123`
-- Student: `student1@sms.com` / `student123`
+   Navigate to the `backend/` directory and create a `.env` file based on `.env.example`:
+   ```bash
+   cd backend
+   cp .env.example .env
+   ```
+   Do the same for the `frontend/` directory:
+   ```bash
+   cd ../frontend
+   cp .env.example .env
+   ```
 
-### 4. Start the apps
+4. **Seed the Database (Optional):**
+   Seed the database with dummy data for testing purposes.
+   ```bash
+   cd .. # Back to root Attendy directory
+   npm run seed
+   ```
 
-Backend:
+5. **Start the Development Servers:**
+   Run the backend:
+   ```bash
+   npm run dev:backend
+   ```
+   Run the frontend:
+   ```bash
+   npm run dev:frontend
+   ```
 
-```bash
-cd backend
-npm run dev
-```
+## 🔐 Authentication Flow
 
-Frontend:
+1. **Registration:** Users register as either a student or teacher. Their account is set to `pending`.
+2. **Approval:** An Admin reviews and approves the registration.
+3. **Login:** Approved users log in to receive a JWT token.
+4. **Access:** The token is sent with API requests to access protected routes based on their role (`admin`, `teacher`, `student`).
 
-```bash
-cd frontend
-npm run dev
-```
+## 🔮 Future Improvements
 
-## Important API Areas
+- [ ] Cloudinary integration for scalable media storage.
+- [ ] Redis caching for faster API response times.
+- [ ] Refresh tokens and secure HTTP-only cookie authentication.
+- [ ] Comprehensive unit and integration test coverage.
+- [ ] CSV export functionality for reports.
+- [ ] Additional modules for timetable scheduling and fee management.
 
-- `POST /api/v1/auth/register`
-- `POST /api/v1/auth/login`
-- `GET /api/v1/auth/me`
-- `GET /api/v1/students/dashboard`
-- `GET /api/v1/students/attendance`
-- `GET /api/v1/students/marks`
-- `GET /api/v1/students/report-card`
-- `POST /api/v1/teachers/attendance`
-- `POST /api/v1/teachers/marks`
-- `POST /api/v1/teachers/announcements`
-- `GET /api/v1/admin/dashboard`
-- `PATCH /api/v1/admin/registrations/:id`
+---
 
-## Verification
-
-- Backend module load verified successfully
-- Frontend production build verified successfully with `npm run build`
-- Backend syntax checked with `node --check`
-
-## Notes
-
-- File uploads use local storage through Multer
-- Real-time updates use Socket.io rooms per user
-- API caching uses in-memory NodeCache for frequently requested read endpoints
-- Passwords are hashed with bcrypt
-- Security middleware includes Helmet, CORS, compression, and rate limiting
-
-For a beginner-friendly implementation walkthrough, see [docs/IMPLEMENTATION.md](docs/IMPLEMENTATION.md).
+<div align="center">
+  <p>Built with ❤️ for better education management.</p>
+</div>
